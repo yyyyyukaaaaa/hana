@@ -1,0 +1,415 @@
+html, body {
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+body {
+    font-family: "Noto Serif JP", serif;
+    font-size: 17px;
+    line-height: 2.5;
+    letter-spacing: 1px;
+    color: #4C5E55;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    padding: 80px 0;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+li {
+    list-style: none;
+}
+
+/* header */
+header {
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header nav ul {
+    display: flex;
+    align-items: center;
+}
+
+header ul li {
+    font-size: 20px;
+    margin-left: 52px;
+}
+
+header ul li a {
+    transition: all 0.3s;
+}
+
+header ul li a:hover {
+    opacity: 0.5;
+}
+
+/* first-view */
+#home {
+    width: 100%;
+    max-width: 1440px;
+    height: 700px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: fade 16s infinite;
+}
+
+.slide img:nth-child(1) { animation-delay: 0s; }
+.slide img:nth-child(2) { animation-delay: 4s; }
+.slide img:nth-child(3) { animation-delay: 8s; }
+.slide img:nth-child(4) { animation-delay: 12s; }
+
+@keyframes fade {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    25% { opacity: 1; }
+    35% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* item */
+#item {
+    text-align: center;
+    padding: 0 5%;
+}
+
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.card-item {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    perspective: 1000px;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.card-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    transition: transform 0.6s;
+    display: flex;
+}
+
+.card-front {
+    transform: rotateY(0deg);
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+.card-item:hover .card-front {
+    transform: rotateY(180deg);
+}
+
+.card-item:hover .card-back {
+    transform: rotateY(0deg);
+}
+
+/* about */
+#about {
+    padding: 0 80px;
+    text-align: center;
+}
+
+.message {
+    position: relative;
+    background-image: url(../images/interiorview.jpg);
+    border-radius: 28px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 80px;
+    color: #333333;
+}
+
+.message p {
+    margin-bottom: 80px;
+}
+
+.message p:last-child {
+    margin-bottom: 0;
+}
+
+/* access */
+#access {
+    padding: 0 80px;
+}
+
+.info {
+    position: relative;
+    background-image: url(../images/exterior.jpg);
+    border-radius: 28px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+    color: #333333;
+}
+
+.info-text {
+    margin-right: 85px;
+}
+
+.info-text h3 {
+    margin-bottom: 10px;
+}
+
+.info-text p {
+    margin-bottom: 38px;
+}
+
+.holiday p {
+    margin-bottom: 0;
+}
+
+/* link */
+#link {
+    text-align: center;
+}
+
+.link-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.museum-wrapper {
+    margin-bottom: 38px;
+}
+
+.siteya-wrapper {
+    margin-bottom: 80px;
+}
+
+.museum-wrapper, .siteya-wrapper {
+    width: 90%;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.museum-wrapper h3 a, .siteya-wrapper h3 a {
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.museum-wrapper h3 a:hover, .siteya-wrapper h3 a:hover {
+    background-color: #f5f5f5;
+}
+
+/* footer */
+footer {
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    line-height: 1.5;
+}
+
+/* sp */
+@media screen and (max-width: 480px) {
+    /* first-view */
+    #home {
+        height: 300px;
+    }
+
+    /* about */
+    #about {
+        padding: 0 20px;
+        font-size: 12px;
+    }
+
+    .message {
+        padding: 40px;
+    }
+
+    .message p {
+        margin-bottom: 20px;
+    }
+
+    /* access */
+    .info-text {
+        font-size: 12px;
+    }
+
+    .info-text h3 {
+        font-size: 15px;
+    }
+
+    /* link */
+    .link-wrapper p {
+        font-size: 12px;
+    }
+
+    .museum-wrapper h3 a, .siteya-wrapper h3 a {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    /* item */
+    .card-list {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 15px;
+    }
+    #item {
+        padding: 0 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* header */
+    header {
+        flex-direction: column;
+        height: auto;
+        line-height: 40px;
+        padding-top: 20px;
+    }
+    header ul li {
+        font-size: 16px;
+        margin-left: 20px;
+    }
+    header h1 img {
+        height: 70px;
+    }
+
+    /* first-view */
+    #home {
+        height: 400px;
+    }
+    .slide img {
+        animation-duration: 12s;
+    }
+
+    /* about */
+    #about {
+        padding: 0 40px;
+        font-size: 15px;
+    }
+
+    .message {
+        padding: 60px;
+    }
+
+    .message p {
+        margin-bottom: 30px;
+    }
+
+    /* access */
+    #access {
+        padding: 0 20px;
+    }
+
+    .info {
+        flex-direction: column;
+        padding: 40px;
+        text-align: center;
+    }
+
+    .info-text {
+        margin-right: 0;
+        font-size: 15px;
+    }
+
+    .info-text h3 {
+        font-size: 17px;
+        margin-bottom: 0;
+    }
+
+    .info-text p {
+        margin-bottom: 30px;
+    }
+
+    .map iframe {
+        width: 100%;
+        height: 300px;
+    }
+
+    /* link */
+    .link-wrapper {
+        flex-direction: column;
+    }
+
+    .museum-wrapper, .siteya-wrapper {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+
+    .link-wrapper p {
+        font-size: 15px;
+    }
+
+    .museum-wrapper h3 a, .siteya-wrapper h3 a {
+        font-size: 17px;
+        padding: 8px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    /* first-view */
+    #home {
+        height: 500px;
+    }
+
+    /* item */
+    .card-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    #item {
+        padding: 0 30px;
+    }
+}
